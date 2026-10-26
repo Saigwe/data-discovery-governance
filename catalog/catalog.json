@@ -1,0 +1,2197 @@
+[
+  {
+    "dataset": "rental_core.actor",
+    "system": "postgres",
+    "records": 200,
+    "fields": [
+      {
+        "dataset": "rental_core.actor",
+        "field": "actor_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 200,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "200",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.actor",
+        "field": "first_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 128,
+        "unique": false,
+        "top_shape": "A+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.actor",
+        "field": "last_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 121,
+        "unique": false,
+        "top_shape": "A+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.actor",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 200,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-12 08:37:38.742369+00:00",
+        "max": "2026-07-17 19:38:02.835468+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.address",
+    "system": "postgres",
+    "records": 1003,
+    "fields": [
+      {
+        "dataset": "rental_core.address",
+        "field": "address_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1003,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1005",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "address",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": false,
+        "top_shape": "9+ Aa+ Aa+",
+        "min": null,
+        "max": null,
+        "pii": "street address"
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "address2",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 0.996,
+        "missing_from_records": 0,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "",
+        "min": null,
+        "max": null,
+        "pii": "street address"
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "district",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 378,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "city_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 599,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "600",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "postal_code",
+        "type": "integer-as-text",
+        "types_seen": [
+          "integer-as-text",
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 994,
+        "unique": false,
+        "top_shape": "9+",
+        "min": null,
+        "max": null,
+        "pii": "postal code"
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "phone",
+        "type": "integer-as-text",
+        "types_seen": [
+          "integer-as-text",
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1002,
+        "unique": false,
+        "top_shape": "9+",
+        "min": null,
+        "max": null,
+        "pii": "phone"
+      },
+      {
+        "dataset": "rental_core.address",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1003,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-03 20:41:04.688924+00:00",
+        "max": "2026-07-28 07:36:33.180807+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.category",
+    "system": "postgres",
+    "records": 16,
+    "fields": [
+      {
+        "dataset": "rental_core.category",
+        "field": "category_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 16,
+        "unique": true,
+        "top_shape": "9",
+        "min": "1",
+        "max": "16",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.category",
+        "field": "name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 16,
+        "unique": true,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.category",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 16,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-19 06:34:39.641511+00:00",
+        "max": "2026-07-24 11:09:25.631140+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.city",
+    "system": "postgres",
+    "records": 600,
+    "fields": [
+      {
+        "dataset": "rental_core.city",
+        "field": "city_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 600,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "600",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.city",
+        "field": "city",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 599,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.city",
+        "field": "country_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 109,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "109",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.city",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 600,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-08 15:18:46.454474+00:00",
+        "max": "2026-07-28 13:53:35.481276+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.country",
+    "system": "postgres",
+    "records": 109,
+    "fields": [
+      {
+        "dataset": "rental_core.country",
+        "field": "country_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 109,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "109",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.country",
+        "field": "country",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 109,
+        "unique": true,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.country",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 109,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-02-01 09:04:29.716323+00:00",
+        "max": "2026-07-18 08:07:28.405804+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.customer",
+    "system": "postgres",
+    "records": 999,
+    "fields": [
+      {
+        "dataset": "rental_core.customer",
+        "field": "customer_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "999",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "store_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "2",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "first_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 617,
+        "unique": false,
+        "top_shape": "A+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "last_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 605,
+        "unique": false,
+        "top_shape": "A+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "email",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "A+.A+@a+.a+",
+        "min": null,
+        "max": null,
+        "pii": "email"
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "address_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "5",
+        "max": "1005",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "activebool",
+        "type": "boolean",
+        "types_seen": [
+          "boolean"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "create_date",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 417,
+        "unique": false,
+        "top_shape": "9+-9+-9+",
+        "min": "2022-01-02",
+        "max": "2026-05-29",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 874,
+        "unique": false,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-03-06 16:06:41.119623+00:00",
+        "max": "2026-07-28 23:59:59+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "active",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "0",
+        "max": "1",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.customer",
+        "field": "uuid",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "9+a+9+-9a9+-9a9+-9+a9-9a",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.film",
+    "system": "postgres",
+    "records": 1000,
+    "fields": [
+      {
+        "dataset": "rental_core.film",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "title",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "A+ A+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "description",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "A Aa+ Aa+ a+ a Aa+ Aa+ a",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "release_year",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 19,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "2006",
+        "max": "2024",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "language_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 6,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "6",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "original_language_id",
+        "type": "null",
+        "types_seen": [],
+        "completeness": 0.0,
+        "missing_from_records": 0,
+        "distinct": 0,
+        "unique": false,
+        "top_shape": null,
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "rental_duration",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 5,
+        "unique": false,
+        "top_shape": "9",
+        "min": "3",
+        "max": "7",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "rental_rate",
+        "type": "number",
+        "types_seen": [
+          "number"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 3,
+        "unique": false,
+        "top_shape": "9.9+",
+        "min": "0.99",
+        "max": "4.99",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "length",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 140,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "46",
+        "max": "185",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "replacement_cost",
+        "type": "number",
+        "types_seen": [
+          "number"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 21,
+        "unique": false,
+        "top_shape": "9+.9+",
+        "min": "9.99",
+        "max": "29.99",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "rating",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 5,
+        "unique": false,
+        "top_shape": "A+-9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 09:20:45.373101+00:00",
+        "max": "2026-07-25 11:26:10.689871+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "special_features",
+        "type": "array",
+        "types_seen": [
+          "array"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 15,
+        "unique": false,
+        "top_shape": "['Aa+', 'Aa+ a+ Aa+']",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "fulltext",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "'a+':9+ 'a+':9+ 'a+':9 '",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film",
+        "field": "length_hours",
+        "type": "number",
+        "types_seen": [
+          "number"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 140,
+        "unique": false,
+        "top_shape": "9.9+",
+        "min": "0.77",
+        "max": "3.08",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.film_actor",
+    "system": "postgres",
+    "records": 5462,
+    "fields": [
+      {
+        "dataset": "rental_core.film_actor",
+        "field": "actor_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 200,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "200",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_actor",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 997,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_actor",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 5462,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 15:58:07.738208+00:00",
+        "max": "2026-07-28 17:03:39.452313+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.film_category",
+    "system": "postgres",
+    "records": 2367,
+    "fields": [
+      {
+        "dataset": "rental_core.film_category",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_category",
+        "field": "category_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 16,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "16",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_category",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2367,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 03:13:19.966189+00:00",
+        "max": "2026-07-28 01:40:46.072323+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.film_embedding",
+    "system": "postgres",
+    "records": 1000,
+    "fields": [
+      {
+        "dataset": "rental_core.film_embedding",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_embedding",
+        "field": "embedding",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "[9,9,9,9,9,9,9,9,9,9,9,9",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.film_embedding",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 09:20:45.373101+00:00",
+        "max": "2026-07-25 11:26:10.689871+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.inventory",
+    "system": "postgres",
+    "records": 4581,
+    "fields": [
+      {
+        "dataset": "rental_core.inventory",
+        "field": "inventory_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 4581,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "4581",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.inventory",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 958,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.inventory",
+        "field": "store_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "2",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.inventory",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 4581,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 14:18:37.313821+00:00",
+        "max": "2026-07-28 22:53:56.454756+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.language",
+    "system": "postgres",
+    "records": 6,
+    "fields": [
+      {
+        "dataset": "rental_core.language",
+        "field": "language_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 6,
+        "unique": true,
+        "top_shape": "9",
+        "min": "1",
+        "max": "6",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.language",
+        "field": "name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 6,
+        "unique": true,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.language",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 6,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-12-19 06:37:25.338769+00:00",
+        "max": "2026-06-19 15:47:45.341130+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.payment",
+    "system": "postgres",
+    "records": 51061,
+    "fields": [
+      {
+        "dataset": "rental_core.payment",
+        "field": "payment_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51061,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "16050",
+        "max": "102094",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "customer_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 997,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "999",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "staff_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "2",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "rental_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51056,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "87558",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "amount",
+        "type": "number",
+        "types_seen": [
+          "number"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 19,
+        "unique": false,
+        "top_shape": "9.9+",
+        "min": "0.00",
+        "max": "11.99",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "payment_date",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 50943,
+        "unique": false,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-23 13:03:52.212496+00:00",
+        "max": "2026-07-28 23:59:59+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.payment",
+        "field": "uuid",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51061,
+        "unique": true,
+        "top_shape": "9+a+9+-9a9a-9+a9-a9+-9+a",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.rental",
+    "system": "postgres",
+    "records": 51805,
+    "fields": [
+      {
+        "dataset": "rental_core.rental",
+        "field": "rental_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51805,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "87559",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "rental_date",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51576,
+        "unique": false,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-02-14 15:16:03+00:00",
+        "max": "2026-07-28 22:25:29.109854+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "inventory_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 4581,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "4581",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "customer_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 997,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "999",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "return_date",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 0.9953,
+        "missing_from_records": 0,
+        "distinct": 51424,
+        "unique": false,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-05-25 22:55:21+00:00",
+        "max": "2026-07-28 23:59:59+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "staff_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "2",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 35764,
+        "unique": false,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-02-15 21:30:53+00:00",
+        "max": "2026-07-28 23:25:29.109854+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.rental",
+        "field": "uuid",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51805,
+        "unique": true,
+        "top_shape": "9+a+9+-9a9+-9+a9-a9+-9+a",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.staff",
+    "system": "postgres",
+    "records": 1500,
+    "fields": [
+      {
+        "dataset": "rental_core.staff",
+        "field": "staff_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1500,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "0",
+        "max": "1499",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "first_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1201,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "last_name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 453,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "address_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 552,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "2",
+        "max": "605",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "email",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1500,
+        "unique": true,
+        "top_shape": "a+9+@a+.a+",
+        "min": null,
+        "max": null,
+        "pii": "email"
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "store_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 475,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "499",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "active",
+        "type": "boolean",
+        "types_seen": [
+          "boolean"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "username",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1499,
+        "unique": false,
+        "top_shape": "a+.a+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "password",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "9a+9+a9+a+9+a+9+a+9+a+9+",
+        "min": null,
+        "max": null,
+        "pii": "credential"
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1500,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-01 14:43:58.354909+00:00",
+        "max": "2026-07-28 18:25:39.859241+00:00",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.staff",
+        "field": "picture",
+        "type": "null",
+        "types_seen": [],
+        "completeness": 0.0,
+        "missing_from_records": 0,
+        "distinct": 0,
+        "unique": false,
+        "top_shape": null,
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "rental_core.store",
+    "system": "postgres",
+    "records": 500,
+    "fields": [
+      {
+        "dataset": "rental_core.store",
+        "field": "store_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 500,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "0",
+        "max": "499",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.store",
+        "field": "manager_staff_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 500,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "0",
+        "max": "499",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.store",
+        "field": "address_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 325,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "2",
+        "max": "604",
+        "pii": null
+      },
+      {
+        "dataset": "rental_core.store",
+        "field": "last_update",
+        "type": "timestamp",
+        "types_seen": [
+          "timestamp"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 500,
+        "unique": true,
+        "top_shape": "9+-9+-9+ 9+:9+:9+.9++9+:",
+        "min": "2022-01-05 23:17:45.030595+00:00",
+        "max": "2026-07-28 20:18:32.975106+00:00",
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "customer_app.customer_profiles",
+    "system": "mongodb",
+    "records": 999,
+    "fields": [
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "_id",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "9a+9a+9+a9a9a+9+a+9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "customer_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 999,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "999",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "store_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "9",
+        "min": "1",
+        "max": "2",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "name.first",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 617,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "name.last",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 605,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.address.line1",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 996,
+        "unique": false,
+        "top_shape": "9+ Aa+ Aa+",
+        "min": null,
+        "max": null,
+        "pii": "street address"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.address.district",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 376,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.address.city",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 597,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.address.country",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 108,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.address.postalCode",
+        "type": "integer-as-text",
+        "types_seen": [
+          "integer-as-text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 993,
+        "unique": false,
+        "top_shape": "9+",
+        "min": null,
+        "max": null,
+        "pii": "postal code"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "active",
+        "type": "boolean",
+        "types_seen": [
+          "boolean"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 2,
+        "unique": false,
+        "top_shape": "Aa+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "created_at",
+        "type": "timestamp-as-text",
+        "types_seen": [
+          "timestamp-as-text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 417,
+        "unique": false,
+        "top_shape": "9+-9+-9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "recent_rentals[].rental_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 4914,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "74277",
+        "max": "87559",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "recent_rentals[].film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 930,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "recent_rentals[].rented_at",
+        "type": "timestamp-as-text",
+        "types_seen": [
+          "timestamp-as-text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 4914,
+        "unique": false,
+        "top_shape": "9+-9+-9+A9+:9+:9+.9++9+:",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "email",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 0.9499,
+        "missing_from_records": 50,
+        "distinct": 949,
+        "unique": true,
+        "top_shape": "a+.a+@a+.a+",
+        "min": null,
+        "max": null,
+        "pii": "email"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "contact.phone",
+        "type": "integer-as-text",
+        "types_seen": [
+          "integer-as-text"
+        ],
+        "completeness": 0.97,
+        "missing_from_records": 30,
+        "distinct": 969,
+        "unique": true,
+        "top_shape": "9+",
+        "min": null,
+        "max": null,
+        "pii": "phone"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "emailAddress",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 0.0501,
+        "missing_from_records": 949,
+        "distinct": 50,
+        "unique": true,
+        "top_shape": "a+.a+@a+.a+",
+        "min": null,
+        "max": null,
+        "pii": "email"
+      },
+      {
+        "dataset": "customer_app.customer_profiles",
+        "field": "recent_rentals",
+        "type": "array",
+        "types_seen": [
+          "array"
+        ],
+        "completeness": 0.002,
+        "missing_from_records": 997,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "[]",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "customer_app.film_catalog",
+    "system": "mongodb",
+    "records": 1000,
+    "fields": [
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "_id",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9a+9a+9+a9a9a+9+a+9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "film_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "1000",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "title",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1000,
+        "unique": true,
+        "top_shape": "A+ A+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "rating",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 5,
+        "unique": false,
+        "top_shape": "A+-9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "length_min",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 140,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "46",
+        "max": "185",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "rental_rate",
+        "type": "number",
+        "types_seen": [
+          "number"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 3,
+        "unique": false,
+        "top_shape": "9.9+",
+        "min": "0.99",
+        "max": "4.99",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "categories",
+        "type": "array",
+        "types_seen": [
+          "array"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 426,
+        "unique": false,
+        "top_shape": "['Aa+', 'Aa+']",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "cast[].actor_id",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 200,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "200",
+        "pii": null
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "cast[].name",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 199,
+        "unique": false,
+        "top_shape": "Aa+ Aa+",
+        "min": null,
+        "max": null,
+        "pii": "person name"
+      },
+      {
+        "dataset": "customer_app.film_catalog",
+        "field": "cast",
+        "type": "array",
+        "types_seen": [
+          "array"
+        ],
+        "completeness": 0.003,
+        "missing_from_records": 997,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "[]",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  },
+  {
+    "dataset": "partner_feeds.payments",
+    "system": "json files",
+    "records": 51061,
+    "fields": [
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "transactionId",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51061,
+        "unique": true,
+        "top_shape": "A+9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "customerRef",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 997,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "999",
+        "pii": null
+      },
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "rentalRef",
+        "type": "integer",
+        "types_seen": [
+          "integer"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 51056,
+        "unique": false,
+        "top_shape": "9+",
+        "min": "1",
+        "max": "87558",
+        "pii": null
+      },
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "amount",
+        "type": "number-as-text",
+        "types_seen": [
+          "number-as-text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 19,
+        "unique": false,
+        "top_shape": "9.9+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "currency",
+        "type": "text",
+        "types_seen": [
+          "text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 1,
+        "unique": false,
+        "top_shape": "A+",
+        "min": null,
+        "max": null,
+        "pii": null
+      },
+      {
+        "dataset": "partner_feeds.payments",
+        "field": "paidAt",
+        "type": "timestamp-as-text",
+        "types_seen": [
+          "timestamp-as-text"
+        ],
+        "completeness": 1.0,
+        "missing_from_records": 0,
+        "distinct": 50943,
+        "unique": false,
+        "top_shape": "9+-9+-9+A9+:9+:9+.9++9+:",
+        "min": null,
+        "max": null,
+        "pii": null
+      }
+    ]
+  }
+]

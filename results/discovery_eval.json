@@ -1,0 +1,44 @@
+{
+  "datasets": 19,
+  "fields": 129,
+  "systems": {
+    "postgres": 16,
+    "mongodb": 2,
+    "json files": 1
+  },
+  "primary_keys": {
+    "declared_single_column": 13,
+    "found": 13,
+    "recall": 1.0
+  },
+  "foreign_keys_within_postgres": {
+    "declared": 22,
+    "discovered": 22,
+    "correct": 21,
+    "precision": 0.955,
+    "recall": 0.955,
+    "missed": [
+      "rental_core.film.original_language_id -> rental_core.language.language_id"
+    ],
+    "extra": [
+      "rental_core.store.manager_staff_id -> rental_core.staff.staff_id"
+    ]
+  },
+  "cross_system_links": {
+    "planted": 8,
+    "found": 8,
+    "recall": 1.0,
+    "extra": [
+      "customer_app.customer_profiles.contact.address.country -> rental_core.country.country"
+    ],
+    "missed": []
+  },
+  "schema_drift": {
+    "planted": 1,
+    "found": 1,
+    "extra": 0
+  },
+  "amount_sent_as_text": true,
+  "pii_fields": 21,
+  "ready_for_governed_reporting": 17
+}

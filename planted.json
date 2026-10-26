@@ -1,0 +1,59 @@
+{
+  "drift": [
+    {
+      "dataset": "customer_app.customer_profiles",
+      "fields": [
+        "email",
+        "emailAddress"
+      ],
+      "share": 0.05
+    }
+  ],
+  "missing": [
+    {
+      "dataset": "customer_app.customer_profiles",
+      "field": "contact.phone",
+      "share": 0.03
+    }
+  ],
+  "amount_as_text": [
+    {
+      "dataset": "partner_feeds.payments",
+      "field": "amount"
+    }
+  ],
+  "cross_system_links": [
+    {
+      "child": "customer_app.customer_profiles.customer_id",
+      "parent": "rental_core.customer.customer_id"
+    },
+    {
+      "child": "customer_app.customer_profiles.recent_rentals[].rental_id",
+      "parent": "rental_core.rental.rental_id"
+    },
+    {
+      "child": "customer_app.customer_profiles.recent_rentals[].film_id",
+      "parent": "rental_core.film.film_id"
+    },
+    {
+      "child": "customer_app.customer_profiles.store_id",
+      "parent": "rental_core.store.store_id"
+    },
+    {
+      "child": "customer_app.film_catalog.film_id",
+      "parent": "rental_core.film.film_id"
+    },
+    {
+      "child": "customer_app.film_catalog.cast[].actor_id",
+      "parent": "rental_core.actor.actor_id"
+    },
+    {
+      "child": "partner_feeds.payments.customerRef",
+      "parent": "rental_core.customer.customer_id"
+    },
+    {
+      "child": "partner_feeds.payments.rentalRef",
+      "parent": "rental_core.rental.rental_id"
+    }
+  ]
+}

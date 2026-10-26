@@ -1,0 +1,20 @@
+dataset,system,records,fields,pii_fields,completeness,type_consistency,conformance,has_primary_key,freshness,score,ready_for_governed_reporting
+rental_core.city,postgres,600,4,0,1.0,1.0,1.0,1.0,0.756,97.6,True
+rental_core.customer,postgres,999,11,3,1.0,1.0,1.0,1.0,0.756,97.6,True
+rental_core.inventory,postgres,4581,4,0,1.0,1.0,1.0,1.0,0.756,97.6,True
+rental_core.payment,postgres,51061,7,0,1.0,1.0,1.0,1.0,0.756,97.6,True
+rental_core.store,postgres,500,4,0,1.0,1.0,1.0,1.0,0.756,97.6,True
+rental_core.film_embedding,postgres,1000,3,0,1.0,1.0,1.0,1.0,0.748,97.5,True
+rental_core.rental,postgres,51805,8,0,0.999,1.0,1.0,1.0,0.756,97.5,True
+rental_core.category,postgres,16,3,0,1.0,1.0,1.0,1.0,0.745,97.4,True
+rental_core.actor,postgres,200,4,2,1.0,1.0,1.0,1.0,0.726,97.3,True
+rental_core.country,postgres,109,3,0,1.0,1.0,1.0,1.0,0.729,97.3,True
+customer_app.film_catalog,mongodb,1000,10,1,0.9,1.0,1.0,1.0,1.0,97.0,True
+rental_core.language,postgres,6,3,0,1.0,1.0,1.0,1.0,0.649,96.5,True
+rental_core.film,postgres,1000,15,0,0.933,1.0,1.0,1.0,0.748,95.5,True
+rental_core.staff,postgres,1500,11,4,0.909,1.0,1.0,1.0,0.756,94.8,True
+partner_feeds.payments,json files,51061,6,0,1.0,1.0,0.667,1.0,1.0,93.3,True
+rental_core.address,postgres,1003,8,4,1.0,0.75,1.0,1.0,0.756,92.6,True
+customer_app.customer_profiles,mongodb,999,19,7,0.893,1.0,0.789,1.0,1.0,92.6,True
+rental_core.film_actor,postgres,5462,3,0,1.0,1.0,1.0,0.0,0.756,77.6,False
+rental_core.film_category,postgres,2367,3,0,1.0,1.0,1.0,0.0,0.756,77.6,False

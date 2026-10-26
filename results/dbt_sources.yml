@@ -1,0 +1,281 @@
+version: 2
+sources:
+- name: rental_core
+  schema: public
+  tables:
+  - name: actor
+    columns:
+    - name: actor_id
+      data_tests:
+      - unique
+      - not_null
+  - name: address
+    columns:
+    - name: address_id
+      data_tests:
+      - unique
+      - not_null
+    - name: city_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'city')
+            field: city_id
+  - name: category
+    columns:
+    - name: category_id
+      data_tests:
+      - unique
+      - not_null
+    - name: name
+      data_tests:
+      - unique
+      - not_null
+  - name: city
+    columns:
+    - name: city_id
+      data_tests:
+      - unique
+      - not_null
+    - name: country_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'country')
+            field: country_id
+  - name: country
+    columns:
+    - name: country_id
+      data_tests:
+      - unique
+      - not_null
+    - name: country
+      data_tests:
+      - unique
+      - not_null
+  - name: customer
+    columns:
+    - name: customer_id
+      data_tests:
+      - unique
+      - not_null
+    - name: email
+      data_tests:
+      - unique
+      - not_null
+    - name: address_id
+      data_tests:
+      - unique
+      - not_null
+    - name: uuid
+      data_tests:
+      - unique
+      - not_null
+    - name: store_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'store')
+            field: store_id
+    - name: address_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'address')
+            field: address_id
+  - name: film
+    columns:
+    - name: film_id
+      data_tests:
+      - unique
+      - not_null
+    - name: title
+      data_tests:
+      - unique
+      - not_null
+    - name: description
+      data_tests:
+      - unique
+      - not_null
+    - name: fulltext
+      data_tests:
+      - unique
+      - not_null
+    - name: language_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'language')
+            field: language_id
+  - name: film_actor
+    columns:
+    - name: actor_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'actor')
+            field: actor_id
+    - name: film_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'film')
+            field: film_id
+  - name: film_category
+    columns:
+    - name: film_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'film')
+            field: film_id
+    - name: category_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'category')
+            field: category_id
+  - name: film_embedding
+    columns:
+    - name: film_id
+      data_tests:
+      - unique
+      - not_null
+    - name: embedding
+      data_tests:
+      - unique
+      - not_null
+    - name: film_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'film')
+            field: film_id
+  - name: inventory
+    columns:
+    - name: inventory_id
+      data_tests:
+      - unique
+      - not_null
+    - name: film_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'film')
+            field: film_id
+    - name: store_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'store')
+            field: store_id
+  - name: language
+    columns:
+    - name: language_id
+      data_tests:
+      - unique
+      - not_null
+    - name: name
+      data_tests:
+      - unique
+      - not_null
+  - name: payment
+    columns:
+    - name: payment_id
+      data_tests:
+      - unique
+      - not_null
+    - name: uuid
+      data_tests:
+      - unique
+      - not_null
+    - name: customer_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'customer')
+            field: customer_id
+    - name: staff_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'staff')
+            field: staff_id
+    - name: rental_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'rental')
+            field: rental_id
+  - name: rental
+    columns:
+    - name: rental_id
+      data_tests:
+      - unique
+      - not_null
+    - name: uuid
+      data_tests:
+      - unique
+      - not_null
+    - name: inventory_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'inventory')
+            field: inventory_id
+    - name: customer_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'customer')
+            field: customer_id
+    - name: staff_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'staff')
+            field: staff_id
+  - name: staff
+    columns:
+    - name: staff_id
+      data_tests:
+      - unique
+      - not_null
+    - name: email
+      data_tests:
+      - unique
+      - not_null
+    - name: address_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'address')
+            field: address_id
+    - name: store_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'store')
+            field: store_id
+  - name: store
+    columns:
+    - name: store_id
+      data_tests:
+      - unique
+      - not_null
+    - name: manager_staff_id
+      data_tests:
+      - unique
+      - not_null
+    - name: manager_staff_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'staff')
+            field: staff_id
+    - name: address_id
+      data_tests:
+      - relationships:
+          arguments:
+            to: source('rental_core', 'address')
+            field: address_id

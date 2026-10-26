@@ -1,0 +1,22 @@
+dataset,field,type,types_seen,completeness,missing_from_records,distinct,unique,top_shape,min,max,pii
+rental_core.actor,first_name,text,['text'],1.0,0,128,False,A+,,,person name
+rental_core.actor,last_name,text,['text'],1.0,0,121,False,A+,,,person name
+rental_core.address,address,text,['text'],1.0,0,1000,False,9+ Aa+ Aa+,,,street address
+rental_core.address,address2,text,['text'],0.996,0,1,False,,,,street address
+rental_core.address,postal_code,integer-as-text,"['integer-as-text', 'text']",1.0,0,994,False,9+,,,postal code
+rental_core.address,phone,integer-as-text,"['integer-as-text', 'text']",1.0,0,1002,False,9+,,,phone
+rental_core.customer,first_name,text,['text'],1.0,0,617,False,A+,,,person name
+rental_core.customer,last_name,text,['text'],1.0,0,605,False,A+,,,person name
+rental_core.customer,email,text,['text'],1.0,0,999,True,A+.A+@a+.a+,,,email
+rental_core.staff,first_name,text,['text'],1.0,0,1201,False,Aa+,,,person name
+rental_core.staff,last_name,text,['text'],1.0,0,453,False,Aa+,,,person name
+rental_core.staff,email,text,['text'],1.0,0,1500,True,a+9+@a+.a+,,,email
+rental_core.staff,password,text,['text'],1.0,0,1,False,9a+9+a9+a+9+a+9+a+9+a+9+,,,credential
+customer_app.customer_profiles,name.first,text,['text'],1.0,0,617,False,Aa+,,,person name
+customer_app.customer_profiles,name.last,text,['text'],1.0,0,605,False,Aa+,,,person name
+customer_app.customer_profiles,contact.address.line1,text,['text'],1.0,0,996,False,9+ Aa+ Aa+,,,street address
+customer_app.customer_profiles,contact.address.postalCode,integer-as-text,['integer-as-text'],1.0,0,993,False,9+,,,postal code
+customer_app.customer_profiles,email,text,['text'],0.9499,50,949,True,a+.a+@a+.a+,,,email
+customer_app.customer_profiles,contact.phone,integer-as-text,['integer-as-text'],0.97,30,969,True,9+,,,phone
+customer_app.customer_profiles,emailAddress,text,['text'],0.0501,949,50,True,a+.a+@a+.a+,,,email
+customer_app.film_catalog,cast[].name,text,['text'],1.0,0,199,False,Aa+ Aa+,,,person name

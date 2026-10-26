@@ -68,7 +68,7 @@ def main() -> None:
     pg.execute("""select f.film_id, f.title, f.rating::text, f.length, f.rental_rate,
                          coalesce(array_agg(distinct cat.name) filter (where cat.name is not null), '{}') as categories
                   from film f left join film_category fc using (film_id) left join category cat using (category_id)
-                  group by all order by f.film_id""")
+                  group by 1, 2, 3, 4, 5 order by f.film_id""")
     films = {r[0]: {"film_id": r[0], "title": r[1], "rating": r[2], "length_min": r[3],
                     "rental_rate": float(r[4]), "categories": list(r[5]), "cast": []} for r in pg.fetchall()}
     pg.execute("""select fa.film_id, a.actor_id, a.first_name || ' ' || a.last_name

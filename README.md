@@ -124,5 +124,10 @@ pip install -r requirements.txt
 make all   # needs PostgreSQL 18 with pgvector (Pagila uses uuidv7 and vectors) and MongoDB; CI starts both as services
 ```
 
+## Roadmap
+- [x] Profiling, key and cross-system link discovery, PII, drift and data confidence, graded against declared keys and planted problems
+- [ ] Discover composite keys, so `film_actor` and `film_category` can qualify for governed reporting
+- [ ] 3-minute Loom walkthrough ([script ready](docs/walkthrough.md))
+
 ## Data licence
 Pagila is released under the PostgreSQL licence (Devrim Gündüz and contributors); it is downloaded at a pinned commit, not redistributed. The MongoDB and JSON estate is generated from it by `estate/build_estate.py`.

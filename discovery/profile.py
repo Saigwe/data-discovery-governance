@@ -163,29 +163,43 @@ def inclusion_dependencies(summaries: list[dict], fields: dict[tuple[str, str], 
                            min_containment: float = 0.99, min_distinct: int = 3) -> list[dict]:
     """Candidate foreign keys: a field whose distinct values sit (almost) entirely inside a candidate key of another
     dataset, of a compatible type, with a related name. Containment alone over-matches small integer ranges, so the
-    name must agree (same normalised name, or the child name equals the parent dataset's entity)."""
+    name must agree (same normalised name, or the child name equals the parent dataset's entity).
+
+    A parent must be the dataset's own key: its name is the dataset's entity ('customer.customer_id'), or the entity
+    starts with it ('film_catalog.film_id'). A unique 'customer.address_id' is not customer's key, so nothing points
+    at it. Where one key name has several homes, the dataset named exactly for it wins: film_id points at 'film', not
+    at its 1:1 extensions 'film_embedding' or 'film_catalog'. An exact own-key match may have as few as 2 values
+    (two stores), because the name already carries the evidence that a small range otherwise cannot."""
     keys = key_candidates(summaries, fields)
     by_dataset_kind = {(s["dataset"], s["field"]): s for s in summaries}
+    entity = lambda ds: re.sub(r"s$", "", ds.split(".")[-1])
+    homes = defaultdict(list)  # normalised key name -> (parent, exact)
+    for k in keys:
+        pname, ent = normalise(k["field"]), entity(k["dataset"])
+        if pname == ent or ent.startswith(pname + "_"):
+            homes[pname].append(((k["dataset"], k["field"]), pname == ent))
+    for name, hs in homes.items():
+        if any(exact for _, exact in hs):
+            homes[name] = [h for h in hs if h[1]]
     out = []
     for child, fp in fields.items():
         cs = by_dataset_kind[child]
-        if cs["type"] not in ("integer", "integer-as-text", "text") or len(fp.values) < min_distinct:
+        if cs["type"] not in ("integer", "integer-as-text", "text") or not fp.values:
             continue
         child_vals = set(fp.values)
-        for k in keys:
-            parent = (k["dataset"], k["field"])
-            if parent == child:
+        cname = normalise(child[1])
+        for name, hs in homes.items():
+            if not (cname == name or cname.endswith("_" + name)):
                 continue
-            entity = re.sub(r"s$", "", k["dataset"].split(".")[-1].split("_p20")[0])
-            cname, pname = normalise(child[1]), normalise(parent[1])
-            if not (cname == pname or cname == entity or cname.endswith("_" + entity)):
-                continue
-            parent_vals = set(fields[parent].values)
-            contained = len(child_vals & parent_vals) / len(child_vals)
-            if contained >= min_containment:
-                out.append({"child_dataset": child[0], "child_field": child[1], "parent_dataset": parent[0],
-                            "parent_field": parent[1], "containment": round(contained, 4),
-                            "cross_source": child[0].split(".")[0] != parent[0].split(".")[0]})
+            for parent, exact in hs:
+                if parent[0] == child[0] or len(child_vals) < (2 if exact and cname == name else min_distinct):
+                    continue
+                parent_vals = set(fields[parent].values)
+                contained = len(child_vals & parent_vals) / len(child_vals)
+                if contained >= min_containment:
+                    out.append({"child_dataset": child[0], "child_field": child[1], "parent_dataset": parent[0],
+                                "parent_field": parent[1], "containment": round(contained, 4),
+                                "cross_source": child[0].split(".")[0] != parent[0].split(".")[0]})
     return out
 
 

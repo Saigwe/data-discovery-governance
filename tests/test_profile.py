@@ -58,3 +58,22 @@ def test_mongo_source_reads_nested_collections():
     (name, records), = list(MongoSource("unused", client=client).datasets())
     s, _ = profiled(name, records)
     assert name == "customer_app.profiles" and {r["field"] for r in s} == {"_id", "customer_id", "contact.phone"}
+
+
+def test_parent_must_be_the_datasets_own_key_and_the_exact_home_wins():
+    film = [{"film_id": i, "title": f"T{i}"} for i in range(1, 6)]
+    embedding = [{"film_id": i} for i in range(1, 6)]                           # 1:1 extension of film
+    customer = [{"customer_id": i, "address_id": i, "store_id": 1 + i % 2} for i in range(1, 6)]
+    store = [{"store_id": 1}, {"store_id": 2}]
+    inventory = [{"inventory_id": i, "film_id": 1 + i % 5, "store_id": 1 + i % 2} for i in range(10)]
+    s, f = [], {}
+    for name, recs in (("db.film", film), ("db.film_embedding", embedding), ("db.customer", customer),
+                       ("db.store", store), ("db.inventory", inventory)):
+        a, b = profiled(name, recs)
+        s, f = s + a, {**f, **b}
+    pairs = {(l["child_dataset"], l["child_field"], l["parent_dataset"]) for l in inclusion_dependencies(s, f)}
+    assert ("db.inventory", "film_id", "db.film") in pairs
+    assert ("db.film_embedding", "film_id", "db.film") in pairs
+    assert not any(p == "db.film_embedding" for _, _, p in pairs)              # extensions are not parents
+    assert ("db.inventory", "store_id", "db.store") in pairs                   # two stores are enough by name
+    assert not any(c == "address_id" for _, c, _ in pairs)                     # customer.address_id is not a key home

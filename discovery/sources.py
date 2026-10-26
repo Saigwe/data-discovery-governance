@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 
@@ -42,8 +43,8 @@ class PostgresSource:
             where tc.table_schema = %s and tc.constraint_type in ('PRIMARY KEY', 'FOREIGN KEY')""", (self.schema,))
         pks, fks = [], []
         for ctype, table, col, ptable, pcol in cur.fetchall():
-            if "_p20" in table:  # partitions repeat the parent's constraints
-                continue
+            table = re.sub(r"_p\d{4}_\d{2}$", "", table)  # Pagila declares payment's keys on its monthly partitions
+            ptable = ptable and re.sub(r"_p\d{4}_\d{2}$", "", ptable)
             if ctype == "PRIMARY KEY":
                 pks.append({"dataset": f"{self.name}.{table}", "field": col})
             else:

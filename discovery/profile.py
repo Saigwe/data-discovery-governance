@@ -118,7 +118,7 @@ def classify_pii(path: str, fp: FieldProfile) -> str | None:
     'cast_name', 'contact.address.line1' -> 'address_line1'), so nested documents are judged with their context and
     a bare 'name' (of a category, a language) is not taken for a person. Value patterns apply only to text: a date
     is not a phone number."""
-    segs = [re.sub(r"([a-z])([A-Z])", r"_", seg).lower() for seg in path.replace("[]", "").split(".")]
+    segs = [re.sub(r"([a-z])([A-Z])", r"\1_\2", seg).lower() for seg in path.replace("[]", "").split(".")]
     name = "_".join(segs[-2:])
     textual = sum(c for k, c in fp.kinds.items() if k in ("text", "integer-as-text")) >= 0.8 * max(fp.present - fp.nulls, 1)
     sample = [v for v, _ in fp.values.most_common(50)] if textual else []

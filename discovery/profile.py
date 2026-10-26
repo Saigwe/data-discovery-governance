@@ -172,7 +172,7 @@ def inclusion_dependencies(summaries: list[dict], fields: dict[tuple[str, str], 
     (two stores), because the name already carries the evidence that a small range otherwise cannot."""
     keys = key_candidates(summaries, fields)
     by_dataset_kind = {(s["dataset"], s["field"]): s for s in summaries}
-    entity = lambda ds: re.sub(r"s$", "", ds.split(".")[-1])
+    entity = lambda ds: re.sub(r"(?<!s)s$", "", ds.split(".")[-1])  # customers -> customer, address stays
     homes = defaultdict(list)  # normalised key name -> (parent, exact)
     for k in keys:
         pname, ent = normalise(k["field"]), entity(k["dataset"])

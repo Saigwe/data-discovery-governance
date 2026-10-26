@@ -5,7 +5,7 @@ PAGILA = https://raw.githubusercontent.com/devrimgunduz/pagila/ce6e114236bb828e5
 
 .PHONY: all download load estate discover test
 
-all: download load estate discover test   ## needs PostgreSQL (with pgvector) and MongoDB running; CI starts both
+all: download load estate discover test   ## needs PostgreSQL 18 (Pagila uses uuidv7) with pgvector, and MongoDB; CI starts both
 
 download:   ## Pagila at a pinned commit (PostgreSQL licence), 13 MB
 	mkdir -p data/raw

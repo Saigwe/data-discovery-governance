@@ -15,8 +15,9 @@ from decimal import Decimal
 PII_RULES = [  # (class, field-name pattern, value pattern); either can match, the value must not contradict
     ("email", r"e[-_]?mail", r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$"),
     ("phone", r"phone|mobile|tel", r"^\+?[\d\s().-]{7,}$"),
-    ("person name", r"(first|last|full)[-_]?name|^name$|customer[-_]?name|employee[-_]?name", None),
-    ("street address", r"^address\d?$|street|address[-_]?line", None),
+    ("person name", r"(first|last|full|given|family|middle)_?name|name_(first|last|full)$"
+                    r"|(cast|actor|person|employee|customer|staff|user|contact|member)_name$", None),
+    ("street address", r"(^|_)address\d?$|street|address_?line", None),
     ("postal code", r"post(al)?[-_]?code|zip", None),
     ("payment", r"card|iban|account[-_]?number", r"^\d{12,19}$"),
     ("credential", r"pass(word)?|secret|token", None),
@@ -113,10 +114,16 @@ def profile_records(dataset: str, records) -> tuple[int, dict[str, FieldProfile]
 
 
 def classify_pii(path: str, fp: FieldProfile) -> str | None:
-    name = path.split(".")[-1].replace("[]", "").lower()
-    sample = [v for v, _ in fp.values.most_common(50)]
+    """Match on the field's last two path segments in snake case ('name.first' -> 'name_first', 'cast[].name' ->
+    'cast_name', 'contact.address.line1' -> 'address_line1'), so nested documents are judged with their context and
+    a bare 'name' (of a category, a language) is not taken for a person. Value patterns apply only to text: a date
+    is not a phone number."""
+    segs = [re.sub(r"([a-z])([A-Z])", r"_", seg).lower() for seg in path.replace("[]", "").split(".")]
+    name = "_".join(segs[-2:])
+    textual = sum(c for k, c in fp.kinds.items() if k in ("text", "integer-as-text")) >= 0.8 * max(fp.present - fp.nulls, 1)
+    sample = [v for v, _ in fp.values.most_common(50)] if textual else []
     for cls, name_rx, value_rx in PII_RULES:
-        by_name = re.search(name_rx, name)
+        by_name = re.search(name_rx, name) or re.search(name_rx, segs[-1])
         by_value = value_rx and sample and sum(bool(re.match(value_rx, s, re.I)) for s in sample) >= 0.8 * len(sample)
         if by_value or (by_name and not (value_rx and sample and not by_value and cls in ("email", "payment"))):
             return cls

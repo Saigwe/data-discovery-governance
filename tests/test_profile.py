@@ -34,6 +34,16 @@ def test_pii_by_name_and_by_value():
     assert pii == {"emailAddress": "email", "notes": "email", "first_name": "person name", "amount": None}
 
 
+def test_pii_uses_path_context_and_ignores_dates():
+    s, _ = profiled("app.people", [{"name": {"first": "Ann", "last": "Lee"}, "cast": [{"name": "Bo Ray"}],
+                                    "contact": {"address": {"line1": "1 High St", "postalCode": "12345"}},
+                                    "create_date": "2006-02-14", "label": {"name": "Comedy"}}])
+    pii = {r["field"]: r["pii"] for r in s}
+    assert pii == {"name.first": "person name", "name.last": "person name", "cast[].name": "person name",
+                   "contact.address.line1": "street address", "contact.address.postalCode": "postal code",
+                   "create_date": None, "label.name": None}
+
+
 def test_inclusion_dependency_needs_containment_and_a_related_name():
     customers = [{"customer_id": i} for i in range(1, 11)]
     orders = [{"order_id": i, "customerRef": 1 + i % 10, "qty": 1 + i % 10} for i in range(30)]

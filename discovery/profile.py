@@ -229,13 +229,21 @@ def near_duplicate_fields(summaries: list[dict]) -> list[dict]:
     return out
 
 
-def confidence(summaries: list[dict], has_key: bool, freshness_days: float | None) -> dict:
-    """A 0-100 data-confidence score per dataset, from its parts, so the score can be explained line by line."""
-    complete = sum(s["completeness"] for s in summaries) / max(len(summaries), 1)
-    consistent = sum(len(s["types_seen"]) <= 1 for s in summaries) / max(len(summaries), 1)
+def confidence(summaries: list[dict], has_key: bool, freshness_days: float | None,
+               drift_fields: set[str] = frozenset()) -> dict:
+    """A 0-100 data-confidence score per dataset, from its parts, so the score can be explained line by line.
+
+    conformance is the share of fields stored as what they are: numbers or timestamps sent as text, and either
+    spelling of a drifting field, count against it. Codes kept as text (postcodes, phone numbers) do not."""
+    n = max(len(summaries), 1)
+    complete = sum(s["completeness"] for s in summaries) / n
+    consistent = sum(len(s["types_seen"]) <= 1 for s in summaries) / n
+    conform = sum(s["type"] not in ("number-as-text", "timestamp-as-text") and s["field"] not in drift_fields
+                  for s in summaries) / n
     fresh = 1.0 if freshness_days is None else max(0.0, 1 - freshness_days / 365)
     parts = {"completeness": round(complete, 3), "type_consistency": round(consistent, 3),
-             "has_primary_key": 1.0 if has_key else 0.0, "freshness": round(fresh, 3)}
-    score = 100 * (0.35 * parts["completeness"] + 0.25 * parts["type_consistency"]
-                   + 0.25 * parts["has_primary_key"] + 0.15 * parts["freshness"])
+             "conformance": round(conform, 3), "has_primary_key": 1.0 if has_key else 0.0,
+             "freshness": round(fresh, 3)}
+    score = 100 * (0.30 * parts["completeness"] + 0.20 * parts["type_consistency"] + 0.20 * parts["conformance"]
+                   + 0.20 * parts["has_primary_key"] + 0.10 * parts["freshness"])
     return {**parts, "score": round(score, 1)}

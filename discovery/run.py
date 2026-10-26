@@ -68,7 +68,8 @@ def main() -> None:
     key_ds = {k["dataset"] for k in keys}
     prio = []
     for d in datasets:
-        c = confidence(d["_rows"], d["dataset"] in key_ds, freshness_days(d["_fps"], as_of))
+        drifting = {f for x in drift if x["dataset"] == d["dataset"] for f in (x["field_a"], x["field_b"])}
+        c = confidence(d["_rows"], d["dataset"] in key_ds, freshness_days(d["_fps"], as_of), drifting)
         prio.append({"dataset": d["dataset"], "system": d["system"], "records": d["records"], "fields": d["fields"],
                      "pii_fields": sum(r["pii"] is not None for r in d["_rows"]), **c,
                      "ready_for_governed_reporting": c["score"] >= 75 and d["dataset"] in key_ds})

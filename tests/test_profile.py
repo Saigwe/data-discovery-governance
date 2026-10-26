@@ -8,7 +8,7 @@ import mongomock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "discovery"))
-from profile import (classify_pii, flatten, inclusion_dependencies, kind, near_duplicate_fields,  # noqa: E402
+from profile import (classify_pii, confidence, flatten, inclusion_dependencies, kind, near_duplicate_fields,  # noqa: E402
                      profile_records, shape, summarise)
 from sources import MongoSource  # noqa: E402
 
@@ -89,3 +89,12 @@ def test_parent_must_be_the_datasets_own_key_and_the_exact_home_wins():
     assert ("db.inventory", "store_id", "db.store") in pairs                   # two stores are enough by name
     assert ("db.customer", "address_id", "db.address") in pairs                # 'address' is not a plural
     assert not any(p == "db.customer" and c == "address_id" for _, c, p in pairs)  # customer.address_id is no home
+
+
+def test_confidence_penalises_text_typed_numbers_and_drift():
+    s, _ = profiled("feed.pay", [{"id": i, "amount": f"{i}.50", "email": "a@b.com"} for i in range(9)]
+                    + [{"id": 9, "amount": "1.50", "emailAddress": "c@d.com"}])
+    clean, _ = profiled("db.pay", [{"id": i, "amount": i + 0.5, "email": "a@b.com"} for i in range(10)])
+    worse = confidence(s, True, 0, {"email", "emailAddress"})
+    better = confidence(clean, True, 0)
+    assert worse["conformance"] == 0.25 and better["conformance"] == 1.0 and worse["score"] < better["score"]

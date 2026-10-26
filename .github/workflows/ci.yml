@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pagila
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+      mongo:
+        image: mongo:7
+        ports: ["27017:27017"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Unit tests (no database)
+        run: make test
+      - name: Load Pagila into PostgreSQL, build the MongoDB and JSON estate, discover and catalogue it
+        run: make download load estate discover
+      - name: Publish the catalogue and results to the catalog branch
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p /tmp/out && cp -r catalog results estate/planted.json /tmp/out/
+          cd /tmp/out && git init -q -b catalog && git add -A
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -qm "Catalogue from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" catalog

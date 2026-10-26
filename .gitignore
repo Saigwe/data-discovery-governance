@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/estate/
+results/
+catalog/
+estate/planted.json
+data/raw/
